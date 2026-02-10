@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Olaf van Gerwen — Creative Developer (Recreation)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <div class="cursor" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="logo" href="#top" aria-label="Home">OLAF VAN GERWEN</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="menu-overlay">
+        MENU
+      </button>
+    </header>
+
+    <nav id="menu-overlay" class="menu-overlay" aria-hidden="true">
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main id="top">
+      <section class="hero reveal">
+        <p class="eyebrow">CREATIVE DEVELOPER / DIGITAL DESIGNER</p>
+        <h1>
+          Designing expressive web experiences through
+          <span>motion, typography & interaction.</span>
+        </h1>
+        <p class="hero-copy">
+          Recreation inspired by olafvangerwen.com — featuring immersive layout, animated transitions,
+          and smooth storytelling interactions.
+        </p>
+      </section>
+
+      <section class="marquee" aria-label="Skills marquee">
+        <div class="marquee-track">
+          <span>WEBGL</span><span>CREATIVE CODE</span><span>ANIMATION</span><span>BRANDING</span>
+          <span>INTERACTION</span><span>FRAMER</span><span>THREE.JS</span><span>WEBGL</span>
+          <span>CREATIVE CODE</span><span>ANIMATION</span><span>BRANDING</span><span>INTERACTION</span>
+          <span>FRAMER</span><span>THREE.JS</span>
+        </div>
+      </section>
+
+      <section id="work" class="work reveal">
+        <div class="section-title-row">
+          <h2>Selected Work</h2>
+          <p>Hover and move your cursor for micro-interactions.</p>
+        </div>
+        <div class="projects">
+          <article class="project-card" tabindex="0">
+            <div class="project-meta"><span>01</span><span>Brand Website</span></div>
+            <h3>Fluid Atelier</h3>
+            <p>Cinematic landing with typographic transitions and ambient grain.</p>
+          </article>
+          <article class="project-card" tabindex="0">
+            <div class="project-meta"><span>02</span><span>Campaign Experience</span></div>
+            <h3>Prism Motion</h3>
+            <p>Scroll-directed sections with layered panels and sticky storytelling.</p>
+          </article>
+          <article class="project-card" tabindex="0">
+            <div class="project-meta"><span>03</span><span>Interactive Portfolio</span></div>
+            <h3>Neon Editorial</h3>
+            <p>Custom cursor, magnetic links, and animated transitions for exploration.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="about" class="about reveal">
+        <h2>About</h2>
+        <p>
+          This single-page recreation emphasizes clean editorial composition with subtle but continuous
+          motion design. Animations are scroll-triggered and hover-reactive, with reduced-motion
+          preferences respected.
+        </p>
+      </section>
+
+      <section id="contact" class="contact reveal">
+        <h2>Let’s work together.</h2>
+        <a class="email" href="mailto:hello@example.com">hello@example.com</a>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
