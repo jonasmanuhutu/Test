@@ -1,0 +1,106 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+/* Cinematic theme tokens */
+:root {
+  --background: #07080a;
+  --foreground: #e6e8ea;
+  --muted: #a4aab3;
+  --surface: rgba(255, 255, 255, 0.04);
+  --border: rgba(255, 255, 255, 0.08);
+
+  --accent: #00e0ff; /* cyan glow */
+  --accent-amber: #ffae42; /* amber glow */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-amber: var(--accent-amber);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #050607;
+    --foreground: #e8eaee;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: radial-gradient(1200px 800px at 50% -20%, rgba(0, 224, 255, 0.06), transparent 60%),
+    radial-gradient(900px 600px at 120% 10%, rgba(255, 174, 66, 0.05), transparent 60%),
+    var(--background);
+  color: var(--foreground);
+}
+
+/* Film grain overlay */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  mix-blend-mode: soft-light;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.12) 50%, transparent 51%),
+    radial-gradient(1px 1px at 30% 80%, rgba(255,255,255,0.08) 50%, transparent 51%),
+    radial-gradient(1px 1px at 50% 40%, rgba(255,255,255,0.10) 50%, transparent 51%),
+    radial-gradient(1px 1px at 70% 60%, rgba(255,255,255,0.09) 50%, transparent 51%),
+    radial-gradient(1px 1px at 90% 30%, rgba(255,255,255,0.11) 50%, transparent 51%);
+  animation: grainShift 6s steps(2) infinite;
+}
+
+@keyframes grainShift {
+  0% { transform: translate3d(0,0,0); }
+  25% { transform: translate3d(-1%, 1%, 0); }
+  50% { transform: translate3d(1%, -1%, 0); }
+  75% { transform: translate3d(1%, 1%, 0); }
+  100% { transform: translate3d(0,0,0); }
+}
+
+/* Glass panel */
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+
+/* Glow text */
+.glow-text {
+  text-shadow: 0 0 16px color-mix(in oklab, var(--accent) 35%, transparent),
+    0 0 36px color-mix(in oklab, var(--accent) 15%, transparent);
+}
+
+/* Light sweep utility */
+.light-sweep {
+  position: relative;
+  overflow: hidden;
+}
+.light-sweep::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,0.08) 40%, transparent 80%);
+  transform: translateX(-100%);
+}
+.light-sweep:hover::after {
+  transition: transform 0.9s ease;
+  transform: translateX(100%);
+}
+
+/* Section spacing */
+.section {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
